@@ -22,13 +22,15 @@ phases:
   post_build:
     commands:
       - echo "Build complete"
-      # - echo "=== ls ==="
-      # - ls -l
-      # - echo "=== ls scripts ==="
-      # - ls -l scripts || echo "scripts folder missing!"
-      # - cat appspec.yml || echo "appspec.yml missing!"
+      - echo "=== ls ==="
+      - ls -l
+      - echo "=== ls scripts ==="
+      - ls -l scripts || echo "scripts folder missing!"
+      - cat appspec.yml || echo "appspec.yml missing!"
 
 artifacts:
+  base-directory: .
   files:
     - appspec.yml
-    - scripts/**
+    - scripts/stop_container.sh
+    - scripts/start_container.sh
